@@ -47,22 +47,24 @@ def test_max_wind_speed():
     # Then repeat the process for the florence.csv and dorian.csv files to check
     # whether your function works for those files.
 
+    print("FAILED: Not implemented yet.") # remove this line when you finish the to do
+
     print("Done testing max_wind_speed")
 
 
 def test_contains_word():
     """ Function that tests the contains_word function. """
 
-    print("Starting test of contains word")
+    print("\nStarting test of contains word")
 
     if contains_word('ok', 'ok') != True:
-        print("Test failed: contains_word('ok', 'ok')")
+        print("FAILED: contains_word('ok', 'ok')")
     elif contains_word('ok', 'OK') != True:
-        print("Test failed: contains_word('ok', 'OK')")
+        print("FAILED: contains_word('ok', 'OK')")
     elif contains_word('ok', 'bad') != False:
-        print("Test failed: contains_word('ok', 'bad')")
+        print("FAILED: contains_word('ok', 'bad')")
     elif contains_word('ok', 'not ok') != True:
-        print("Test failed: contains_word('ok', 'ok')")
+        print("FAILED: contains_word('ok', 'not ok')")
     # To Do: update the chained conditional to test all of your new test cases.
     else:
         print("All contains_word test cases passed!")
