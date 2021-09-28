@@ -63,8 +63,8 @@ def test_contains_word():
         print("FAILED: contains_word('ok', 'OK')")
     elif contains_word('ok', 'bad') != False:
         print("FAILED: contains_word('ok', 'bad')")
-    elif contains_word('ok', 'not ok') != True:
-        print("FAILED: contains_word('ok', 'not ok')")
+    elif contains_word('ok', 'movie ok') != True:
+        print("FAILED: contains_word('ok', 'movie ok')")
     # To Do: update the chained conditional to test all of your new test cases.
     else:
         print("All contains_word test cases passed!")
@@ -74,6 +74,7 @@ def test_contains_word():
 
 
 def main():
+    """ Calls the tester functions in the code. """
     test_max_wind_speed()
     test_contains_word()
 
