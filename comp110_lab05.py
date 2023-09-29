@@ -14,8 +14,15 @@ def max_wind_speed(hurricane_filename):
     Returns:
     (type: int) The maximum wind speed of the hurricane.
     """
+    f = open(hurricane_filename, 'r')
+    biggest = 0
+    for line in f:
+        vals = line.split(',')
+        new_value = int(vals[4])
+        if new_value > biggest:
+            biggest = new_value
+    return biggest
 
-    pass # replace this line with your implementation of this function
 
 
 def contains_word(word, review):
@@ -33,8 +40,14 @@ def contains_word(word, review):
     (type: boolean) True if word is contained in the review, and false
     otherwise.
     """
+    word = word.lower()
+    review = review.lower().split()
+    if word in review:
+        return True
+    else:
+        return False
+    
 
-    pass # replace this line with your implementation of this function
 
 
 def test_max_wind_speed():
@@ -43,11 +56,28 @@ def test_max_wind_speed():
     print("Starting test of max_wind_speed")
 
     # To Do: Call your max_wind_speed function on the irma.csv file, using an if
-    # statement to indicate whether the result was correct or not.
+    irma_test = max_wind_speed("irma.csv")
+     # statement to indicate whether the result was correct or not.
+    if irma_test == 185:
+        print("max_wind_speed(irma.csv)PASSED")
+    else:
+        print("max_wind_speed(irma.csv)FAILED")
+
+    Florence_test = max_wind_speed("florence.csv")
+    if Florence_test == 140:
+        print("max_wind_speed(florence.csv)PASSED")
+    else:
+        print("max_wind_speed(florence.csv)FAILED")
+
+    Dorian_test = max_wind_speed("Dorian.csv")
+    if Dorian_test == 185:
+        print("max_wind_speed(dorian.csv)PASSED")    
+    else:
+        print("max_wind_speed(dorian.csv)FAILED")
     # Then repeat the process for the florence.csv and dorian.csv files to check
     # whether your function works for those files.
 
-    print("FAILED: Not implemented yet.") # remove this line when you finish the to do
+
 
     print("Done testing max_wind_speed")
 
@@ -65,12 +95,15 @@ def test_contains_word():
         print("FAILED: contains_word('ok', 'bad')")
     elif contains_word('ok', 'movie ok') != True:
         print("FAILED: contains_word('ok', 'movie ok')")
-    # To Do: update the chained conditional to test all of your new test cases.
+    elif contains_word("God", "god") != True:
+        print("FAILED: contains_word('God', 'god')")
+    elif contains_word("god", "God") != True:
+        print("FAILED: contains_word('god', 'God')")
+    elif contains_word("god", "goddess") == True:
+        print("FAILED: contains_word('god', 'goddess')")
     else:
-        print("All contains_word test cases passed!")
-
-
-    print("Done testing contains word")
+        print("ALL TEST HAVE PASSED")
+        print("Done testing contains word")
 
 
 def main():
